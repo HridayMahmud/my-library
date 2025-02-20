@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+body{
+font-family: "Work Sans", serif;
+
+}
+a.active{
+border: 1px solid #23BE0A;
+padding: 12px;
+border-radius: 8px;
+color: #23BE0A;
+}
+             
