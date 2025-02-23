@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import Homepage from './Banner/Banner'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
-import FetchingData from './LoadBooks/FetchingData'
+
 
 const Root = () => {
   return (

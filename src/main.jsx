@@ -4,13 +4,11 @@ import './index.css'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Root from './Components/Root.jsx'
 import Error from './Components/Error/Error.jsx'
-
-import Listedbooks from './Components/ListedBooks/Listedbooks.jsx'
 import PagesToRead from './Components/PagesToRead/PagesToRead.jsx'
 import BookDetails from './Components/BookDetails/BookDetails.jsx'
-import FetchingData from './Components/LoadBooks/FetchingData.jsx'
-import Homepage from './Components/Banner/Banner.jsx'
 import Home from './Components/BannerandDisplayedBook/Home.jsx'
+import DisplayListedBooks from './Components/Displaybooks/Displaybooks.jsx'
+import Listedbooks from './Components/ListedBooks/Listedbooks.jsx'
 
 
 const router = createBrowserRouter([
@@ -23,10 +21,14 @@ const router = createBrowserRouter([
         path:'/',
         element:<Home></Home>
        },
+       {
+        path:'/listedbooks',
+        element:<Listedbooks></Listedbooks>
+       },
     
       {
         path:'/listedbooks',
-        element:<Listedbooks></Listedbooks>
+        element:<DisplayListedBooks></DisplayListedBooks>
       },
       
       {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
-import Listedbooks from '../ListedBooks/Listedbooks';
+import DisplayListedBooks from '../Displaybooks/Displaybooks';
 
 const FetchingData = () => {
 const [books,setBooks] = useState([]);
@@ -21,7 +20,7 @@ const [books,setBooks] = useState([]);
              
       {
         Array.isArray(books) && books.length>0 ?
-       books.map(newbook=><Listedbooks key={newbook.id} allbooks={newbook}></Listedbooks>)
+       books.map(newbook=><DisplayListedBooks key={newbook.id} allbooks={newbook}></DisplayListedBooks>)
        :<p>no books are found</p>
       }
       </div>

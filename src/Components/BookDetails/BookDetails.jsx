@@ -1,15 +1,30 @@
-import React, { useState } from 'react'
+
 import { useLoaderData, useParams } from 'react-router-dom'
-import DisplaybookDetails from '../DisplayBookDetails/DisplaybookDetails';
+import { ToastContainer, toast } from 'react-toastify';
+import { saveReadBooks } from '../HandleLocalStorage/Handlelocalstorage';
 
 const BookDetails = () => {
+
 
   const bookofdata = useLoaderData();
   const {id} = useParams();
   const intId = parseInt(id);
   const selectedData = bookofdata.find(book=>book.id===intId);
-  console.log(selectedData)
-  console.log(selectedData.author)
+
+
+  //function handleReadButton
+  const handleReadButton = ()=>{
+    console.log('clicked');
+    saveReadBooks(intId);
+    toast('Books added to Readlist');
+    
+  }
+
+  //handleWishButton
+  const handleWishButton = () =>{
+    console.log('clicked');
+    toast('books added to Wishlist');
+  }
 
   return (
     <div className='mx-12 flex gap-24 mt-[60px] mb-12'>
@@ -27,7 +42,7 @@ const BookDetails = () => {
      
      <div className="tag flex gap-3 mt-6 mb-6  ">
       <div className="flex items-center ">
-      <p className='font-bold  text-lg '>tag</p>
+      <p className='font-bold  text-lg '>Tag</p>
       </div>
          
       <div className="flex gap-3">
@@ -60,9 +75,11 @@ const BookDetails = () => {
      
      </div>
      <div className="button">
-        <button className='font-semibold mr-4 mt-8 text-lg border-2 px-4 py-3 btn btn-black rounded-lg' type="button">Read</button>
-        <button className='font-semibold text-lg px-4 py-3 text-white rounded-lg bg-[#50B1C9] btn btn-black' type="button">Wishlist</button>
+        <button onClick={handleReadButton} className='btn-white outline-0 font-semibold mr-4 mt-8 text-lg border-2 border-gray-200 px-5 py-3 btn btn-black rounded-lg' type="button">Read</button>
+        <button onClick={handleWishButton} className='btn-ash font-semibold text-lg px-4 py-3 text-white rounded-lg bg-[#50B1C9] ' type="button">Wishlist</button>
+      
       </div>
+      <ToastContainer></ToastContainer>
      </div>
     </div>
   )

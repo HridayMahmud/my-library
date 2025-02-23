@@ -13,7 +13,7 @@ const Header = () => {
           <Link to={'/'}>Home</Link>
           </a>
           <a href="">
-          <Link className='text-[#131313CC]' to={'/'} >Listed Books</Link>
+          <Link className='text-[#131313CC]' to={'/listedbooks'} >Listed Books</Link>
         
           </a>
           <a href="">
