@@ -3,10 +3,12 @@ import { useLoaderData, useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { saveReadBooks } from '../HandleLocalStorage/HandlelocalstorageReadlist';
 import { saveWishlistBooks } from '../HandleLocalStorageWishlist/HandleLocalStorage';
+import { useState } from 'react';
 
 const BookDetails = () => {
 
-
+  const [clicked,setclicked] = useState(false);
+  const [count,setcount] = useState(1);
   const bookofdata = useLoaderData();
   const {id} = useParams();
   const intId = parseInt(id);
@@ -14,16 +16,31 @@ const BookDetails = () => {
 
 
   //function handleReadButton
+  
   const handleReadButton = ()=>{
+    setclicked(true);
+    setcount(count+1);
+    if(count>1){
+      toast('You have already read this book');
+    }
+    else{
     saveReadBooks(intId);
     toast('Books added to Readlist');
+    }
     
   }
 
   //handleWishButton
+ 
   const handleWishButton = () =>{
-    saveWishlistBooks(intId);
-    toast('books added to Wishlist');
+    if(!clicked){
+      saveWishlistBooks(intId);
+      toast('books added to Wishlist');
+    }
+    else{
+      toast('You have already read this book');
+    }
+   
   }
 
   return (
