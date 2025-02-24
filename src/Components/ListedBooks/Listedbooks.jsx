@@ -1,37 +1,43 @@
 import React, { useEffect, useState} from 'react'
-import { getReadedBooks } from '../HandleLocalStorage/Handlelocalstorage';
+import { getReadedBooks } from '../HandleLocalStorage/HandlelocalstorageReadlist';
 import { CiLocationOn } from "react-icons/ci";
 import { FcBusinessman } from "react-icons/fc";
 import { MdOutlineInsertPageBreak } from "react-icons/md";
+import ListedWishlistbooks from '../ListedWishlistbooks/ListedWishlistbooks';
+
 const Listedbooks = () =>{
       const [savedBooks,setsavedBooks] = useState([]);
+      const [savedWishlistbooks,setsavedWishlistbooks]= useState([]);
       const fetchingData=async()=>{
          const response = await fetch('/Data.json');
          const allbooks = await response.json();
-         const storedBooks = getReadedBooks();
-         //console.log(storedBooks);
-         const allstoredbooks = [];
-         for(const id of storedBooks){
-         const filteredbooks = allbooks.filter(book=>book.id===id);
-         if(filteredbooks.length>0){
-          allstoredbooks.push(...filteredbooks);
+        
+
+         //all storedReadlist
+         const storedReadBooks = getReadedBooks();
+         const allstoredReadbooks = [];
+         for(const id of storedReadBooks){
+          const filteredbooks = allbooks.filter(book=>book.id===id);
+          if(filteredbooks.length>0){
+           allstoredReadbooks.push(...filteredbooks);
+          }
+          }
           
-          //console.log(allstoredbooks);
-         }
-       
-         }
-         setsavedBooks(allstoredbooks);
-         //console.log(savedBooks);
-      }
-     
+          //set usestate
+          setsavedBooks(allstoredReadbooks);
+
+          
+       }
+      
+
+        
      useEffect(()=>{
           fetchingData();
          
      },[])
   return (
     <div>
-       <div className="bg-gray-100 mx-12 py-4 rounded-2xl text-[#131313] mb-5 text-center font-bold text-3xl">Books</div>
-      
+      <div className="bg-gray-100 mx-12 py-4 rounded-2xl text-[#131313] mb-5 text-center font-bold text-3xl">Books</div>
       <div className="flex justify-center">
       <div className="dropdown ">
       <details class="dropdown  ">
@@ -74,7 +80,6 @@ const Listedbooks = () =>{
      <p>Year of Publishing:{book.year_of_publishing}</p>
      </div>
      </div>
-
      <div className="publisherandpages mb-6 text-[#131313CC] text-lg font-normal flex gap-4">
     <div className="flex items-center gap-2">
     <FcBusinessman />
@@ -96,15 +101,13 @@ const Listedbooks = () =>{
     <button className='' type="button">View Details</button>
     </div>
      </div>
-    
-             </div>
+          </div>
            </div>
          ))}
        </div>
      ) : (
        <p>No saved books available.</p>
      )}
-     
      </div>
   </div>
 
@@ -116,13 +119,9 @@ const Listedbooks = () =>{
     aria-label="Wishlist Books"
     checked="checked" />
   <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-    Tab content 2
+  <ListedWishlistbooks></ListedWishlistbooks>
   </div>
-
-  
 </div>
-
-      
     </div>
   )
 }

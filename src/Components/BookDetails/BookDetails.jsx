@@ -1,7 +1,8 @@
 
 import { useLoaderData, useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
-import { saveReadBooks } from '../HandleLocalStorage/Handlelocalstorage';
+import { saveReadBooks } from '../HandleLocalStorage/HandlelocalstorageReadlist';
+import { saveWishlistBooks } from '../HandleLocalStorageWishlist/HandleLocalStorage';
 
 const BookDetails = () => {
 
@@ -14,7 +15,6 @@ const BookDetails = () => {
 
   //function handleReadButton
   const handleReadButton = ()=>{
-    console.log('clicked');
     saveReadBooks(intId);
     toast('Books added to Readlist');
     
@@ -22,7 +22,7 @@ const BookDetails = () => {
 
   //handleWishButton
   const handleWishButton = () =>{
-    console.log('clicked');
+    saveWishlistBooks(intId);
     toast('books added to Wishlist');
   }
 
@@ -44,13 +44,11 @@ const BookDetails = () => {
       <div className="flex items-center ">
       <p className='font-bold  text-lg '>Tag</p>
       </div>
-         
       <div className="flex gap-3">
           {
           selectedData.tags.map(tag=><p className=' bg-[#F3F3F3] text-center w-[200px] px-4 py-3 rounded-4xl text-[#23BE0A] text-xl font-semibold'> #{tag}</p>)
           }
       </div>
-     
      </div>
      <hr className='text-gray-200 mb-6'></hr>
      <div className=" font-normal text-lg flex gap-[60px]">
@@ -77,7 +75,6 @@ const BookDetails = () => {
      <div className="button">
         <button onClick={handleReadButton} className='btn-white outline-0 font-semibold mr-4 mt-8 text-lg border-2 border-gray-200 px-5 py-3 btn btn-black rounded-lg' type="button">Read</button>
         <button onClick={handleWishButton} className='btn-ash font-semibold text-lg px-4 py-3 text-white rounded-lg bg-[#50B1C9] ' type="button">Wishlist</button>
-      
       </div>
       <ToastContainer></ToastContainer>
      </div>
