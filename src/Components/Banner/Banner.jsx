@@ -18,7 +18,7 @@ const Banner = () => {
        </div>
      
       </div>
-     <Link to={''}><button class="bg-[#23BE0A] mx-[120px] mb-[120px] text-white font-semibold px-4  py-3 rounded-[8px]" type="button">View The List</button></Link>
+     <Link to={'/listedbooks'}><button class="bg-[#23BE0A] mx-[120px] mb-[120px] text-white font-semibold px-4  py-3 rounded-[8px]" type="button">View The List</button></Link>
     </div>
   )
 }
