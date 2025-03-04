@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { saveReadBooks } from '../HandleLocalStorage/HandlelocalstorageReadlist';
 import { saveWishlistBooks } from '../HandleLocalStorageWishlist/HandleLocalStorage';
 import { useState } from 'react';
-
+import "react-toastify/dist/ReactToastify.css";
 const BookDetails = () => {
 
   const [clicked,setclicked] = useState(false);
@@ -21,7 +21,9 @@ const BookDetails = () => {
     setclicked(true);
     setcount(count+1);
     if(count>1){
-      toast('You have already read this book');
+      toast.error("The book is alredy read!", {
+        position: "top-center",
+    });
     }
     else{
     saveReadBooks(intId);
@@ -38,7 +40,9 @@ const BookDetails = () => {
       toast('books added to Wishlist');
     }
     else{
-      toast('You have already read this book');
+      toast.error("The book is alredy read!", {
+        position: "top-center",
+    });
     }
    
   }
@@ -90,8 +94,8 @@ const BookDetails = () => {
      
      </div>
      <div className="button">
-        <button onClick={handleReadButton} className='btn-white outline-0 font-semibold mr-4 mt-8 text-lg border-2 border-gray-200 px-5 py-3 btn btn-black rounded-lg' type="button">Read</button>
-        <button onClick={handleWishButton} className='btn-ash font-semibold text-lg px-4 py-3 text-white rounded-lg bg-[#50B1C9] ' type="button">Wishlist</button>
+        <button onClick={handleReadButton} className=' outline-0 font-semibold mr-4 mt-8 text-lg border-2 border-gray-200  btn btn-success rounded-lg' type="button">Read</button>
+        <button onClick={handleWishButton} className='btn btn-ash font-semibold text-lg  text-white rounded-lg bg-[#50B1C9] ' type="button">Wishlist</button>
       </div>
       <ToastContainer></ToastContainer>
      </div>

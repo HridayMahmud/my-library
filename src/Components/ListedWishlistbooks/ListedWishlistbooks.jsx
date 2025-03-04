@@ -5,7 +5,7 @@ import { FcBusinessman } from "react-icons/fc";
 import { MdOutlineInsertPageBreak } from "react-icons/md";
 const ListedWishlistbooks = () => {
      const [savedWishlistbooks,setsavedWishlistbooks] = useState([]);
-
+     
      const fetchiData = async () =>{
           const res = await fetch('/Data.json');
           const allbooks = await res.json();
@@ -30,7 +30,16 @@ const ListedWishlistbooks = () => {
   return (
     <div>
         <div className="listedWishlistbooks mx-12">
-     
+        {/* <div className="dropdown ">
+      <details class="dropdown  ">
+      <summary class="btn m-1 px-6 bg-[#23BE0A] text-white">Sort By</summary>
+    <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+    <li><button onClick={()=>{handleFilter('rating'),handleButtonClick('clicked')}} type="button">Rating</button></li>
+    <li><button onClick={()=>handleFilter('number_of_pages')} type="button">Number of Pages</button></li>
+    <li><button onClick={()=>handleFilter('year_of_publications')} type="button">Year Publications</button></li>
+    </ul>
+    </details>
+      </div> */}
      {savedWishlistbooks.length > 0 ? (
        <div className=''>
          {savedWishlistbooks.map((book2) => (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -9,16 +9,9 @@ const Header = () => {
 
         <div className="midheader ">
         <ul className='flex items-center gap-8'>
-          <a href="" className='active'>
-          <Link to={'/'}>Home</Link>
-          </a>
-          <a href="">
-          <Link className='text-[#131313CC]' to={'/listedbooks'} >Listed Books</Link>
-        
-          </a>
-          <a href="">
-          <Link className='text-[#131313CC]' to={'/pagestoread'} >Pages to Read</Link>
-          </a>
+          <a href="" className='active'><NavLink to={'/'} >Home</NavLink></a>
+          <a href=""><NavLink className='text-[#131313CC]' to={'/listedbooks'} >Listed Books </NavLink></a>
+          <a href=""><NavLink className='text-[#131313CC]' to={'/pagestoread'} >Pages to Read</NavLink></a>
           </ul>
         </div>
 
