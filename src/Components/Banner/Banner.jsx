@@ -4,13 +4,23 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
-    <div className='mx-4 md:mx-12 bg-gray-100 rounded-3xl'>
-      <div className="headerbody mt-8 md:mt-16 flex justify-center">
-        <div className="pt-8 md:pt-[120px] flex flex-col md:flex-row items-center">
+    <div className='mx-4 md:mx-12  bg-gray-100 mt-10 md:mt-[70px]  rounded-3xl'>
+      <div className="headerbody mt-8 md:mt-16 p-8 flex justify-center">
+        <div className="p-6   flex flex-col md:flex-row items-center">
           <div className="text-section px-6 md:px-[120px] text-center md:text-left">
             <h1 className="font-bold text-[32px] md:text-[56px] text-[#131313] leading-tight">
               Books to freshen <br /> up your bookshelf
             </h1>
+            <div className=" mt-6 md:mt-12">
+        <Link to={'/listedbooks'}>
+          <button
+            className="bg-[#23BE0A] text-white font-semibold px-6 py-3 rounded-[8px] hover:bg-[#1ea008] transition duration-300"
+            type="button"
+          >
+            View The List
+          </button>
+        </Link>
+      </div>
           </div>
 
           <div className="image-section mt-6 md:mt-0">
@@ -22,16 +32,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-6 md:mt-12">
-        <Link to={'/listedbooks'}>
-          <button
-            className="bg-[#23BE0A] text-white font-semibold px-6 py-3 rounded-[8px] hover:bg-[#1ea008] transition duration-300"
-            type="button"
-          >
-            View The List
-          </button>
-        </Link>
-      </div>
+     
     </div>
   );
 };

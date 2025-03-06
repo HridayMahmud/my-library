@@ -16,7 +16,7 @@ const FetchingData = () => {
   return (
     <div className="mt-[100px]">
       <h1 className="font-bold text-3xl text-center mb-10">Books</h1>
-      <div className="allbooks mx-4 sm:mx-8 md:mx-12 gap-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="allbooks mx-4 sm:mx-8 md:mx-12 gap-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
         {Array.isArray(books) && books.length > 0 ? (
           books.map((newbook) => (
             <DisplayListedBooks key={newbook.id} allbooks={newbook}></DisplayListedBooks>

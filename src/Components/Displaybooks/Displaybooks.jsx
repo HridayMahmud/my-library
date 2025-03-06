@@ -11,7 +11,7 @@ const DisplayListedBooks = ({ allbooks }) => {
           <div className="px-6 py-8 flex justify-center rounded-xl bg-[#F3F3F3]">
             <img className="w-[150px] h-[200px] sm:w-[180px] sm:h-[240px] md:w-[200px] md:h-[260px]" src={image} alt={title} />
           </div>
-          <ul className="mt-6 flex gap-3 mb-4 flex-wrap justify-center">
+          <ul className="mt-6 flex flex-col md:flex-row gap-3 mb-4  justify-center items-center">
             {tags.map((tag, index) => (
               <li
                 key={index}

@@ -69,7 +69,7 @@ const Listedbooks = () => {
     <div>
       <div className="bg-gray-100 mx-12 py-4 rounded-2xl text-[#131313] mb-5 text-center font-bold text-3xl">Books</div>
 
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center  mb-4">
         {/* Filter Dropdown */}
         <div className="dropdown">
           <details className="dropdown">
@@ -83,7 +83,7 @@ const Listedbooks = () => {
         </div>
       </div>
 
-      <div role="tablist" className="tabs tabs-lifted mx-12">
+      <div role="tablist" className="tabs tabs-lifted mx-0 md:mx-12">
         {/* Read Books Tab */}
         <input
           type="radio"
@@ -94,27 +94,27 @@ const Listedbooks = () => {
           checked={activeTab === "readBooks"}
           onChange={() => setActiveTab("readBooks")}
         />
-        <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-          <div className="listedbooks mx-12">
+        <div role="tabpanel" className="tab-content w-[500px]  md:w-full  bg-base-100 border-base-300 rounded-box p-6">
+          <div className="listedbooks mx-12 ">
             {savedBooks.length > 0 ? (
               <div className="">
                 {savedBooks.map((book, index) => (
                   <div key={`${book.id}-${index}`} className="mb-5 flex flex-col md:flex-row gap-6 border-2 rounded-2xl border-gray-300 p-6">
                     {/* Book Image */}
                     <div className="image rounded-2xl bg-gray-100 w-full md:w-[300px] p-[50px] flex justify-center">
-                      <img className='w-[230px] h-[228px]' src={book.image} alt="" />
+                      <img className='w-[150px] md:w-[230px] h-[228px]' src={book.image} alt="" />
                     </div>
                     {/* Book Details */}
                     <div className="text flex-1">
-                      <h1 className='text-[#131313] font-bold text-[30px] md:text-[40px]'>{book.title}</h1>
-                      <p className='text-[16px] mb-6 text-[#131313CC] font-normal'>By: {book.author}</p>
-                      <div className="tag flex gap-3 mt-6 mb-6">
+                      <h1 className='text-[#131313] text-center md:text-left font-bold text-[30px] md:text-[40px]'>{book.title}</h1>
+                      <p className='text-[16px] mb-6 text-center md:text-left text-[#131313CC] font-normal'>By: {book.author}</p>
+                      <div className="tag flex  flex-col md:flex-row items-center md:items-start  gap-3 mt-6 mb-6">
                         <div className="flex items-center">
                           <p className='font-bold text-lg'>Tag</p>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex flex-col md:flex-row items-center gap-3">
                           {book.tags.map(tag => (
-                            <p className='bg-[#F3F3F3] text-center w-[150px] p-1 rounded-4xl text-[#23BE0A] text-lg font-semibold'> #{tag}</p>
+                            <p className='bg-[#F3F3F3]  text-center w-[150px] p-1 rounded-4xl text-[#23BE0A] text-lg font-semibold'> #{tag}</p>
                           ))}
                         </div>
                       </div>
@@ -123,11 +123,11 @@ const Listedbooks = () => {
                         <p>Year of Publishing: {book.year_of_publishing}</p>
                       </div>
                       <div className="publisherandpages mb-6 text-[#131313CC] text-lg font-normal flex gap-4">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-center gap-2">
                           <FcBusinessman />
                           <p>Publisher: {book.publisher}</p>
                         </div>
-                        <div className="flex items-center">
+                        <div className="flex justify-center items-center">
                           <MdOutlineInsertPageBreak />
                           <p>Page {book.number_of_pages}</p>
                         </div>

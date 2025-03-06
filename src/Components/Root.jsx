@@ -7,7 +7,7 @@ import Footer from './Footer/Footer'
 
 const Root = () => {
   return (
-    <div>
+    <div className=''>
 
      <div className="flex px-6 flex-col min-h-screen">
      <Header></Header>
