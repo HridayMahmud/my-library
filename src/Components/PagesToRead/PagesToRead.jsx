@@ -11,11 +11,14 @@ import {
 } from "recharts";
 
 const data = [
+  
   { name: "The Great Gatsby", value: 192 },
   { name: "To Kill a Mockingbird", value: 281 },
   { name: "1984", value: 328 },
   { name: "The Alchemist", value: 177 },
   { name: "Pride and Prejudice", value: 279 },
+
+
 ];
 
 const PagesToRead = () => {
